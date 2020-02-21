@@ -16,19 +16,21 @@ void setup ()
     buttons = new MSButton[NUM_ROWS][NUM_COLS];
     fill2D(buttons);
     
-    //setMines();
+    setMines();
 }
-/*
-public MSButton setMines(MSButton[][] vals)
+
+public void setMines()
 {
-    MSButton[][] newvals = new MSButton[vals.length][vals[0].length];
-    int totalMines = ((NUM_ROWS)*(NUM_COLS))-((NUM_ROWS-1)*(NUM_COLS-1));
-    for(int i=0;i<totalMines;i++){
-        Math.random()*NUM_ROWS;
-    }  
-    return newvals;
+    int mineRow = (int)((Math.random()*NUM_ROWS)-1);
+    int mineCol = (int)((Math.random()*NUM_COLS)-1);
+    //String masterCoord = String.valueOf(mineRow)+String.valueOf(mineCol);
+    for(int i = 0; i<NUM_ROWS;i++){
+        if(!mines.contains(buttons[mineRow][mineCol])){
+            mines.add(buttons[mineRow][mineCol]);
+        }
+    }
 }
-*/
+
 
 public void draw ()
 {
@@ -51,7 +53,6 @@ public void displayWinningMessage()
 }
 public boolean isValid(int r, int c)
 {
-    //your code here
     return false;
 }
 public int countMines(int row, int col)
@@ -90,8 +91,8 @@ public class MSButton
     {    
         if (flagged)
             fill(0);
-        // else if( clicked && mines.contains(this) ) 
-        //     fill(255,0,0);
+         else if( clicked && mines.contains(this) ) 
+             fill(255,0,0);
         else if(clicked)
             fill( 200 );
         else 
