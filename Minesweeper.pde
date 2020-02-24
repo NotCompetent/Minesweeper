@@ -15,20 +15,17 @@ void setup ()
     //your code to initialize buttons goes here
     buttons = new MSButton[NUM_ROWS][NUM_COLS];
     fill2D(buttons);
-    
+    mines = new ArrayList <MSButton>();
     setMines();
 }
 
 public void setMines()
 {
-    int mineRow = (int)((Math.random()*NUM_ROWS)-1);
-    int mineCol = (int)((Math.random()*NUM_COLS)-1);
-    //String masterCoord = String.valueOf(mineRow)+String.valueOf(mineCol);
-    for(int i = 0; i<NUM_ROWS;i++){
-        if(!mines.contains(buttons[mineRow][mineCol])){
-            mines.add(buttons[mineRow][mineCol]);
-        }
-    }
+    int mineRow = 2;//(int)((Math.random()*NUM_ROWS)-1);
+    int mineCol = 2;//(int)((Math.random()*NUM_COLS)-1);
+    mines.add(buttons[mineRow][mineCol]);
+        
+    
 }
 
 
@@ -51,7 +48,7 @@ public void displayWinningMessage()
 {
     //your code here
 }
-public boolean isValid(int r, int c)
+public boolean isValid(int row, int col)
 {
     return false;
 }
