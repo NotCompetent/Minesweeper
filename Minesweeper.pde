@@ -129,7 +129,11 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        
+        if(mouseButton == RIGHT){
+            flagged = !flagged;
+        }else if(mines.contains(this)){
+            displayLosingMessage();
+        }
        //your code here
     }
     public void draw () 
