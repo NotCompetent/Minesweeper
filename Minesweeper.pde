@@ -129,8 +129,11 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        if(mouseButton == RIGHT){
-            flagged = !flagged;
+        if(mouseButton == RIGHT && flagged == true){
+            clicked = false;
+            flagged = false;
+        }else if(mouseButton == RIGHT && flagged == false){
+            flagged = true;
         }else if(mines.contains(this)){
             displayLosingMessage();
         }
@@ -176,3 +179,6 @@ public MSButton[][] fill2D(MSButton[][] vals){
         newvals[i][j]=new MSButton(i,j);
     return newvals;
 }
+/*
+
+*/
