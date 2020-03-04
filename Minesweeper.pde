@@ -136,8 +136,44 @@ public class MSButton
             flagged = true;
         }else if(mines.contains(this)){
             displayLosingMessage();
+        }else if(countMines(myRow,myCol,mines)>0){
+            setLabel(countMines(myRow,myCol,mines));
+        }else{
+            if(isValid(myRow,myCol-1) && !mines.contains(buttons[myRow][myCol-1])){
+                buttons[myRow][myCol-1].mousePressed();
+            }
+            if(isValid(row-1,col-1)==true&&mines.contains(buttons[row][col])){
+                buttons[myRow][myCol-1].mousePressed();
+            //top middle 2
+            }if(isValid(row-1,col)==true&&mines.contains(buttons[row][col])){
+                total = total + 1;
+
+            //top right 3
+            }if(isValid(row-1,col+1)==true&&mines.contains(buttons[row][col])){
+                total = total + 1;
+
+            //middle left 4
+            }if(isValid(row,col-1)==true&&mines.contains(buttons[row][col])){
+                total = total + 1;
+
+            //middle right 5
+            }if(isValid(row,col+1)==true&&mines.contains(buttons[row][col])){
+                total = total + 1;
+
+            //bottom left 6
+            }if(isValid(row+1,col-1)==true&&mines.contains(buttons[row][col])){
+                total = total + 1;
+
+            //bottom middle 7
+            }if(isValid(row+1,col)==true&&mines.contains(buttons[row][col])){
+                total = total + 1;
+
+            //bottom right 8
+            }if(isValid(row+1,col+1)==true&&mines.contains(buttons[row][col])){
+                total = total + 1;
+            }
         }
-       //your code here
+        //your code here
     }
     public void draw () 
     {
