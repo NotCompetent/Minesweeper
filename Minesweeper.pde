@@ -137,41 +137,60 @@ public class MSButton
         }else if(mines.contains(this)){
             displayLosingMessage();
         }else if(countMines(myRow,myCol,mines)>0){
-            setLabel(countMines(myRow,myCol,mines));
+            setLabel(String.valueOf(countMines(myRow,myCol,mines)));
         }else{
+            superPress(myRow-1,myCol-1,buttons);
+            superPress(myRow-1,myCol+1,buttons);
+            superPress(myRow-1,myCol,buttons);
+            superPress(myRow,myCol-1,buttons);
+            superPress(myRow,myCol+1,buttons);
+            superPress(myRow+1,myCol-1,buttons);
+            superPress(myRow+1,myCol+1,buttons);
+            superPress(myRow+1,myCol,buttons);
+            
+            /*
             if(isValid(myRow,myCol-1) && !mines.contains(buttons[myRow][myCol-1])){
                 buttons[myRow][myCol-1].mousePressed();
             }
             if(isValid(myRow-1,myCol-1)==true&&!mines.contains(buttons[myRow-1][myCol-1])){
                 buttons[myRow-1][myCol-1].mousePressed();
             //top middle 2
-            }if(isValid(myRow-1,myCol)==true&&!mines.contains(buttons[myRow-1][myCol])){
+            }
+            if(isValid(myRow-1,myCol)==true&&!mines.contains(buttons[myRow-1][myCol])){
                 buttons[myRow-1][myCol].mousePressed();
 
             //top right 3
-            }if(isValid(myRow-1,myCol+1)==true&&!mines.contains(buttons[myRow-1][myCol+1])){
+            }
+            if(isValid(myRow-1,myCol+1)==true&&!mines.contains(buttons[myRow-1][myCol+1])){
                 buttons[myRow-1][myCol+1].mousePressed();
 
             //middle left 4
-            }if(isValid(myRow,myCol-1)==true&&!mines.contains(buttons[myRow][myCol-1])){
+            }
+            if(isValid(myRow,myCol-1)==true&&!mines.contains(buttons[myRow][myCol-1])){
                 buttons[myRow][myCol-1].mousePressed();
 
             //middle right 5
-            }if(isValid(myRow,myCol+1)==true&&!mines.contains(buttons[myRow][myCol+1])){
+            }
+            if(isValid(myRow,myCol+1)==true&&!mines.contains(buttons[myRow][myCol+1])){
                 buttons[myRow][myCol+1].mousePressed();
 
             //bottom left 6
-            }if(isValid(myRow+1,myCol-1)==true&&!mines.contains(buttons[myRow+1][myCol-1])){
+            }
+            if(isValid(myRow+1,myCol-1)==true&&!mines.contains(buttons[myRow+1][myCol-1])){
                 buttons[myRow+1][myCol-1].mousePressed();
 
             //bottom middle 7
-            }if(isValid(myRow+1,myCol)==true&&!mines.contains(buttons[myRow+1][myCol])){
+            }
+            if(isValid(myRow+1,myCol)==true&&!mines.contains(buttons[myRow+1][myCol])){
                 buttons[myRow+1][myCol].mousePressed();
 
             //bottom right 8
-            }if(isValid(myRow+1,myCol+1)==true&&!mines.contains(buttons[myRow+1][myCol+1])){
-                buttons[myRow+1][myCol+1].mousePressed();
             }
+            if(isValid(myRow+1,myCol+1)==true&&!mines.contains(buttons[myRow+1][myCol+1])){
+                buttons[myRow+1][myCol+1].mousePressed();
+
+            }
+            */
         }
         //your code here
     }
@@ -204,6 +223,11 @@ public class MSButton
     public boolean isFlagged()
     {
         return flagged;
+    }
+    public void superPress(int row, int col, MSButton[][] button){
+        if(isValid(row,col)==true&&!mines.contains(buttons[row][col])){
+            buttons[row][col].mousePressed();
+        }
     }
 }
 
