@@ -138,6 +138,7 @@ public class MSButton
             displayLosingMessage();
         }else if(countMines(myRow,myCol,mines)>0){
             setLabel(String.valueOf(countMines(myRow,myCol,mines)));
+            System.out.println(countMines(myRow,myCol,mines));
         }else{
             superPress(myRow-1,myCol-1,buttons);
             superPress(myRow-1,myCol+1,buttons);
@@ -148,49 +149,7 @@ public class MSButton
             superPress(myRow+1,myCol+1,buttons);
             superPress(myRow+1,myCol,buttons);
             
-            /*
-            if(isValid(myRow,myCol-1) && !mines.contains(buttons[myRow][myCol-1])){
-                buttons[myRow][myCol-1].mousePressed();
-            }
-            if(isValid(myRow-1,myCol-1)==true&&!mines.contains(buttons[myRow-1][myCol-1])){
-                buttons[myRow-1][myCol-1].mousePressed();
-            //top middle 2
-            }
-            if(isValid(myRow-1,myCol)==true&&!mines.contains(buttons[myRow-1][myCol])){
-                buttons[myRow-1][myCol].mousePressed();
-
-            //top right 3
-            }
-            if(isValid(myRow-1,myCol+1)==true&&!mines.contains(buttons[myRow-1][myCol+1])){
-                buttons[myRow-1][myCol+1].mousePressed();
-
-            //middle left 4
-            }
-            if(isValid(myRow,myCol-1)==true&&!mines.contains(buttons[myRow][myCol-1])){
-                buttons[myRow][myCol-1].mousePressed();
-
-            //middle right 5
-            }
-            if(isValid(myRow,myCol+1)==true&&!mines.contains(buttons[myRow][myCol+1])){
-                buttons[myRow][myCol+1].mousePressed();
-
-            //bottom left 6
-            }
-            if(isValid(myRow+1,myCol-1)==true&&!mines.contains(buttons[myRow+1][myCol-1])){
-                buttons[myRow+1][myCol-1].mousePressed();
-
-            //bottom middle 7
-            }
-            if(isValid(myRow+1,myCol)==true&&!mines.contains(buttons[myRow+1][myCol])){
-                buttons[myRow+1][myCol].mousePressed();
-
-            //bottom right 8
-            }
-            if(isValid(myRow+1,myCol+1)==true&&!mines.contains(buttons[myRow+1][myCol+1])){
-                buttons[myRow+1][myCol+1].mousePressed();
-
-            }
-            */
+            
         }
         //your code here
     }
@@ -242,3 +201,47 @@ public MSButton[][] fill2D(MSButton[][] vals){
 /*
 
 */
+
+/*
+            if(isValid(myRow,myCol-1) && !mines.contains(buttons[myRow][myCol-1])){
+                buttons[myRow][myCol-1].mousePressed();
+            }
+            if(isValid(myRow-1,myCol-1)==true&&!mines.contains(buttons[myRow-1][myCol-1])){
+                buttons[myRow-1][myCol-1].mousePressed();
+            //top middle 2
+            }
+            if(isValid(myRow-1,myCol)==true&&!mines.contains(buttons[myRow-1][myCol])){
+                buttons[myRow-1][myCol].mousePressed();
+
+            //top right 3
+            }
+            if(isValid(myRow-1,myCol+1)==true&&!mines.contains(buttons[myRow-1][myCol+1])){
+                buttons[myRow-1][myCol+1].mousePressed();
+
+            //middle left 4
+            }
+            if(isValid(myRow,myCol-1)==true&&!mines.contains(buttons[myRow][myCol-1])){
+                buttons[myRow][myCol-1].mousePressed();
+
+            //middle right 5
+            }
+            if(isValid(myRow,myCol+1)==true&&!mines.contains(buttons[myRow][myCol+1])){
+                buttons[myRow][myCol+1].mousePressed();
+
+            //bottom left 6
+            }
+            if(isValid(myRow+1,myCol-1)==true&&!mines.contains(buttons[myRow+1][myCol-1])){
+                buttons[myRow+1][myCol-1].mousePressed();
+
+            //bottom middle 7
+            }
+            if(isValid(myRow+1,myCol)==true&&!mines.contains(buttons[myRow+1][myCol])){
+                buttons[myRow+1][myCol].mousePressed();
+
+            //bottom right 8
+            }
+            if(isValid(myRow+1,myCol+1)==true&&!mines.contains(buttons[myRow+1][myCol+1])){
+                buttons[myRow+1][myCol+1].mousePressed();
+
+            }
+            */
